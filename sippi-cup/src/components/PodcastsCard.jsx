@@ -1,5 +1,20 @@
 import { genres } from "../../../data.js";
 
+/**
+ * This component builds and renders a podcast card with image, title, genres, seasons, and last updated date.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {Object} props.podcast - The podcast object 
+ * @param {string} props.podcast.id - Unique id
+ * @param {string} props.podcast.title - Title
+ * @param {string} props.podcast.image - URL of the podcast image
+ * @param {string[]} [props.podcast.genres] - genre IDs in an array
+ * @param {number} [props.podcast.seasons] - Number of seasons 
+ * @param {string} props.podcast.updated - Date
+ *
+ * @returns {JSX.Element} A styled podcast card with metadata and genres.
+ */
 const PodcastCard = ({ podcast, onPodcastSelect }) => {
 
     // const [daysSinceUpdate, setDaysSinceUpdate] = useState(0);
@@ -32,6 +47,7 @@ const PodcastCard = ({ podcast, onPodcastSelect }) => {
         }
     };
 
+    
     const getGenreTitles = () => {
         if (!podcast.genres) return [];
         return genres

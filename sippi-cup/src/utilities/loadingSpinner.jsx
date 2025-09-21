@@ -1,3 +1,13 @@
+/**
+ * LoadingSpinner Component
+ * 
+ * Displays a full-screen loading overlay with:
+ * - A spinning circular loader
+ * - A welcome message
+ * - Sippi-Cup logo
+ *
+ * @component
+ */
 const LoadingSpinner = () => {
 
     const logo = {id: 3, image: "./src/assets/SippiCup_logo.png", alt: "logo"};

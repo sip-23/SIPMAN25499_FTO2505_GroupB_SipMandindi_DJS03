@@ -1,5 +1,14 @@
 import { useState } from 'react';
 
+/**
+ * ErrorDisplay Component
+ *
+ * shows a error notification box once the data cannot load due to loading error codes
+ * 
+ * @component
+ * @param {Object} props
+ * @param {string} props.message - error message to display.
+ */
 const ErrorDisplay = ({ message, onDismiss }) => {
   const [isVisible, setIsVisible] = useState(true);
 

@@ -5,6 +5,12 @@ import LoadingSpinner from "../utilities/loadingSpinner";
 import ErrorDisplay from "../utilities/loadingError";
 import useFetchPodcasts from "../utilities/fetchPodcasts";
 
+/**
+ * Home Component
+ * 
+ * Main landing page of the podcast app.
+ * @component
+ */
 const Home = () => {
     const [podcastsUrl] = useState("https://podcast-api.netlify.app/shows");
   

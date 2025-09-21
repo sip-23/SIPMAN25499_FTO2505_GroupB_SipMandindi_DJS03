@@ -1,6 +1,12 @@
 import { IoBookOutline, IoNotificationsOutline, IoSearchOutline, IoPersonOutline } from "react-icons/io5";
 import { useState } from "react";
 
+/**
+ * Header Component
+ *
+ * A fixed top navigation bar
+ * @component
+ */
 const Header = () => {
     const [searchValue, setSearchValue] = useState("");
 

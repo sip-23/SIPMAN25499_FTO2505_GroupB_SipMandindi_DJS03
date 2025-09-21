@@ -1,6 +1,20 @@
 import { useState, useEffect } from "react";
 import { genres } from "../../../data.js";
 
+/**
+ * PodcastsModal component which shows the detailed information about a selected podcast in a modal overlay. 
+ * It shows the podcast image, description, genres, seasons, and last updated date. 
+ * 
+ * @component
+ * 
+ * @param {Object} props - Component props
+ * @param {number|string} props.podcastId - The ID of the podcast that is selected by user
+ * @param {boolean} props.isOpen - state control to check if the modal is open or closed
+ * @param {Function} props.onClose - event listener of call back function
+ * @param {Array<Object>} props.allPodcasts - Array of all podcasts data available
+ * 
+ * @returns {JSX.Element|null} The rendered modal or null if closed/no podcast
+ */
 const PodcastsModal = ({ podcastId, isOpen, onClose, allPodcasts }) => {
     const [podcastData, setPodcastData] = useState(null);
     const [podcastGenres, setPodcastGenres] = useState([]);

@@ -1,5 +1,20 @@
 import PodcastCard from '../components/PodcastsCard';
 
+/**
+ * PodcastGrid component renders a responsive grid of PodcastCard components creating a grid layout.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {Object[]} props.podcasts - Array of podcast objects.
+ * @param {string} props.podcasts[].id - Unique id.
+ * @param {string} props.podcasts[].title - Podcast title.
+ * @param {string} props.podcasts[].image - Podcast image URL.
+ * @param {string[]} [props.podcasts[].genres] - Array of genre IDs
+ * @param {number} [props.podcasts[].seasons] - Number of seasons.
+ * @param {string} props.podcasts[].updated - Date string of last update.
+ *
+ * @returns {JSX.Element} A responsive grid of podcast cards or a message if no podcasts are found.
+ */
 const PodcastGrid = ({ podcasts, onPodcastSelect }) => {
   if (!podcasts || podcasts.length === 0) {
     return (
