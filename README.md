@@ -2,40 +2,45 @@
 
 ## Overview
 
-In this project, you will build the landing page for a podcast discovery app using **React**. Your goal is to fetch podcast data from an external API and dynamically render a **responsive grid of podcast previews**. This project focuses on **data fetching**, **component structure**, **rendering logic**, and **layout styling**.
+In this project, I built the landing page for a podcast discovery app using **React**. My goal is to:
+- fetch podcast data from an external API and dynamically render a **responsive grid of podcast previews**. 
+
+This focuses on 
+- **data fetching**, 
+- **component structure**, 
+- **rendering logic**, and 
+- **layout styling**.
 
 ---
 
 ## Core Objectives
 
-- Fetch podcast data from an API: https://podcast-api.netlify.app/ on initial page load.
-- Display a loading indicator while data is being fetched, and handle errors or empty results with a clear user message.
-- Render a responsive **grid layout** of podcast previews using modular, reusable React components.
-- Pass podcast data into components via props and render each podcast card with the following:
+- I fetched podcast data from an API: https://podcast-api.netlify.app/ on initial page load.
+- I Displayed a loading indicator while data is being fetched, and handle errors or empty results with a clear user message.
+- I then rendered a responsive **grid layout** of podcast previews using modular, reusable React components.
+- I then pass podcast data into components via props and render each podcast card with the following:
   - Podcast **image**
   - Podcast **title**
   - Number of **seasons**
   - Associated **genre names**
   - Formatted **last updated** date (e.g., "2 days ago")
-- Apply clean, consistent layout and styling across different screen sizes using CSS Grid or Flexbox.
-- Maintain high-quality, readable code with clear structure and **JSDoc comments** for key functions and components.
 
 ---
 
 ## Technical Requirements
 
-- Use **React functional components**
-- Use the **Fetch API**
-- Use `useEffect()` to fetch data once on mount
-- Use `useState()` to manage podcast data
-- Use `.map()` to dynamically render PodcastPreviewCard components
-- Format dates using `date-fns` or a custom formatter
+- I Used **React functional components**
+- I Used the **Fetch API**
+- I Used `useEffect()` to fetch data once on mount
+- I Used `useState()` to manage podcast data
+- I Used `.map()` to dynamically render PodcastPreviewCard components
+- I Formated dates using `date-fns` or a custom formatter
 
 ---
 
 ## Responsiveness Requirements
 
-- Must look good on:
+- My app looks good on:
   - Desktop (≥1200px)
   - Tablet (~768px)
   - Mobile (~375px)
