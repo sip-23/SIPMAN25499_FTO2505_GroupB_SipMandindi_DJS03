@@ -50,87 +50,64 @@ const PodcastsModal = ({ podcastId, isOpen, onClose, allPodcasts }) => {
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
             onClick={handleBackdropClick}
         >
-        <div className="bg-[#282828] rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-            {/* Header */}
-            <div className="flex justify-between items-start mb-6">
-            <h2 className="text-2xl font-bold text-white">{podcastData.title}</h2>
-            <button 
-                onClick={onClose}
-                className="text-white text-2xl hover:text-gray-400"
-                aria-label="Close modal"
-            >
-                ×
-            </button>
-            </div>
-
-            {/* Main content */}
-            <div className="flex flex-col lg:flex-row gap-6 mb-6">
-            {/* Image */}
-            <img 
-                src={podcastData.image} 
-                alt={podcastData.title}
-                className="w-full lg:w-48 h-48 object-cover rounded-lg"
-            />
-            
-            {/* Details */}
-            <div className="flex-1">
-                <p className="text-gray-300 mb-4">{podcastData.description}</p>
-                
-                {/* Genres */}
-                <div className="mb-4">
-                <h3 className="text-sm font-medium text-gray-300 mb-2">Genres</h3>
-                <div className="flex flex-wrap gap-2">
-                    {podcastGenres.map((genre, index) => (
-                    <span
-                        key={index}
-                        className="bg-[#F4F4F4] w-fit h-fit px-2 py-1 text-sm text-[#121212] rounded"
+            <div className="bg-[#282828] rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-6">
+                    <h2 className="text-2xl font-bold text-white">{podcastData.title}</h2>
+                    <button 
+                        onClick={onClose}
+                        className="text-white text-2xl hover:text-gray-400"
+                        aria-label="Close modal"
                     >
-                        {genre}
-                    </span>
-                    ))}
-                    {podcastGenres.length === 0 && (
-                    <span className="text-gray-400">No genres listed</span>
-                    )}
-                </div>
+                        ×
+                    </button>
                 </div>
 
-                {/* Metadata */}
-                <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
-                <div>
-                    <span className="font-medium">Seasons:</span> {podcastData.seasons || 0}
-                </div>
-                <div>
-                    <span className="font-medium">Last Updated:</span> {getFormattedDate(podcastData.updated)}
-                </div>
-                </div>
-            </div>
-            </div>
+                {/* Main content */}
+                <div className="flex flex-col lg:flex-row gap-6 mb-6">
+                    {/* Image */}
+                    <img 
+                        src={podcastData.image} 
+                        alt={podcastData.title}
+                        className="w-full lg:w-[40%] h-fit object-cover rounded-lg"
+                    />
+                    
+                    {/* Details */}
+                    <div className="flex-1">
+                        <p className="text-gray-300 mb-4">{podcastData.description}</p>
+                        
+                        {/* Genres */}
+                        <div className="mb-4">
+                            <h3 className="text-sm font-medium text-gray-300 mb-2">Genres</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {podcastGenres.map((genre, index) => (
+                                    <span
+                                        key={index}
+                                        className="bg-[#F4F4F4] w-fit h-fit px-2 py-1 text-sm text-[#121212] rounded"
+                                    >
+                                        {genre}
+                                    </span>
+                                ))}
+                                {podcastGenres.length === 0 && (
+                                    <span className="text-gray-400">No genres listed</span>
+                                )}
+                            </div>
+                        </div>
 
-            {/* Seasons - Simplified since seasonDetails is in podcastData */}
-            <div className="mt-6">
-            <h3 className="text-xl font-medium text-white mb-4">Seasons</h3>
-            {podcastData.seasonDetails && podcastData.seasonDetails.length > 0 ? (
-                <div className="space-y-3">
-                {podcastData.seasonDetails.map((season, index) => (
-                    <div
-                    key={index}
-                    className="w-full p-4 border border-gray-600 rounded-md bg-[#1a1a1a]"
-                    >
-                    <h4 className="text-lg font-medium text-white mb-2">{season.title}</h4>
-                    <div className="flex items-center justify-between text-sm text-gray-400">
-                        <span>Season {index + 1}</span>
-                        <span>{season.episodes} Episodes</span>
+                        {/* Metadata */}
+                        <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
+                            <div>
+                                <span className="font-medium">Seasons:</span> {podcastData.seasons || 0}
+                            </div>
+                            <div>
+                                <span className="font-medium">Last Updated:</span> {getFormattedDate(podcastData.updated)}
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                ))}
                 </div>
-            ) : (
-                <p className="text-gray-400">No season information available</p>
-            )}
             </div>
-        </div>
         </div>
     );
-    };
+};
 
-    export default PodcastsModal;
+export default PodcastsModal;

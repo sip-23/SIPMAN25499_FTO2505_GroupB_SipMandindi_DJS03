@@ -12,7 +12,7 @@ const Header = () => {
             {/* Icon Container */}
             {darkLogo && (
                 <img 
-                    className="flex w-[200px] h-12" 
+                    className="flex w-[200px] h-12 md:w-[170px]" 
                     src={darkLogo.image} 
                     alt={darkLogo.alt} 
                 />

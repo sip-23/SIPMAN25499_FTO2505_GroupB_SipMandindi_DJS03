@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import { genres } from "../../../data.js";
 
 const PodcastCard = ({ podcast, onPodcastSelect }) => {
-    const [daysSinceUpdate, setDaysSinceUpdate] = useState(0);
 
-    useEffect(() => {
-        if (podcast.updated) {
-        const updatedDate = new Date(podcast.updated);
-        const currentDate = new Date();
-        const timeDiff = currentDate.getTime() - updatedDate.getTime();
-        setDaysSinceUpdate(Math.floor(timeDiff / (1000 * 3600 * 24)));
-        }
-    }, [podcast.updated]);
+    // const [daysSinceUpdate, setDaysSinceUpdate] = useState(0);
+
+    // useEffect(() => {
+    //     if (podcast.updated) {
+    //     const updatedDate = new Date(podcast.updated);
+    //     const currentDate = new Date();
+    //     const timeDiff = currentDate.getTime() - updatedDate.getTime();
+    //     setDaysSinceUpdate(Math.floor(timeDiff / (1000 * 3600 * 24)));
+    //     }
+    // }, [podcast.updated]);
 
     const getFormattedDate = (dateString) => {
         const updatedDate = new Date(dateString);
@@ -31,10 +32,19 @@ const PodcastCard = ({ podcast, onPodcastSelect }) => {
         }
     };
 
+    const getGenreTitles = () => {
+        if (!podcast.genres) return [];
+        return genres
+            .filter(genre => podcast.genres.includes(genre.id))
+            .map(genre => genre.title);
+    };
+
+    const genreTitles = getGenreTitles();
+
     return (
         <div 
-        className="podcast-card min-w-[280px] max-w-[285px] max-h-[350px] flex flex-col p-5 gap-1 rounded-lg bg-[#282828] hover:bg-[#65350F] transition-colors cursor-pointer"
-        onClick={handleClick}
+            className="podcast-card min-w-[280px] max-w-[285px] max-h-[350px] flex flex-col p-5 gap-1 rounded-lg bg-[#282828] hover:bg-[#65350F] transition-colors cursor-pointer"
+            onClick={handleClick}
         >
         <img 
             src={podcast.image} 
@@ -62,20 +72,25 @@ const PodcastCard = ({ podcast, onPodcastSelect }) => {
             {podcast.seasons || 0} seasons
             </span>
         </div>
-        
-        <div className="flex flex-wrap items-start gap-1">
-            {podcast.genres?.map((genre, index) => (
-            <span key={index} className="genre-tag bg-[#F4F4F4] w-fit h-fit px-1 text-sm text-[#121212] truncate">
-                {genre}
-            </span>
-            ))}
+
+        <div className="mb-1">
+            <div className="flex flex-wrap gap-1">
+                {genreTitles.map((genre, index) => (
+                    <span
+                        key={index}
+                        className="genre-tag bg-[#F4F4F4] rounded-[2px] w-fit px-1 text-sm text-[#121212] truncate"
+                    >
+                        {genre}
+                    </span>
+                ))}
+            </div>
         </div>
         
         <p className="update-info text-sm text-[#b3b3b3] truncate">
             {getFormattedDate(podcast.updated)}
         </p>
-        </div>
-    );
+    </div>
+);
 };
 
 export default PodcastCard;
