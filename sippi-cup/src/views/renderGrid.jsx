@@ -1,0 +1,25 @@
+import PodcastCard from '../components/PodcastsCard';
+
+const PodcastGrid = ({ podcasts, onPodcastSelect }) => {
+  if (!podcasts || podcasts.length === 0) {
+    return (
+      <div className="text-center py-10 text-gray-500">
+        No podcasts found
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 mx-auto">
+      {podcasts.map(podcast => (
+        <PodcastCard
+          key={podcast.id}
+          podcast={podcast}
+          onPodcastSelect={onPodcastSelect}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default PodcastGrid;
